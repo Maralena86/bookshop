@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+ {% block body %}
+  <h1>CATEGORIES</h1>
+   <div class="container">
+   <h2>Search</h2>
+ {{form(form)}}
+</div>
+ <article>
+ {% for categorie in categories %}
+ <div class="container">
+ {{categorie.name}} 
+{# {% for book in books %} <div> 
+<p> <strong>{{categorie.name}} </strong>:{{book.price}}</p>
+<p>{{book.title}}</p>
+
+{% if book.imageUrl %}
+<img src= "{{book.imageUrl}}" alt="{{book.title}}"/>
+{% endif %}
+<nav>
+    <a href="{{path('app_admin_book_update', {id:book.id})}}">Modifier</a>
+    <a href="{{path('app_admin_book_delete', {id:book.id})}}">Suprimer</a>
+</nav> </div>
+ {% endfor %}  #}
+ </div>
+  {% endfor %}
+
+</article>
+ {% endblock %}

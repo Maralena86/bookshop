@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+{% block title %}Publishing houses{% endblock %}
+{% block body %}
+ <h1>Publishing houses</h1>
+ <article>
+ {% for house in houses %}
+ <div class="container">
+<p> <strong>Publishing house: </strong>{{house.name}}  </p>
+
+<p> <strong>Description: </strong>{{house.description}}  </p>
+
+<p><strong> Country: </strong>{{house.country}}  </p>
+
+<nav>
+    <a href="{{path('app_admin_publishingHouse_update', {id:house.id})}}">Modifier</a>
+    <a href="{{path('app_admin_publishingHouse_delete', {id:house.id})}}">Suprimer</a>
+</nav>
+</div>
+ {% endfor %}
+ 
+ </ul>
+ </article>
+ {% endblock %}

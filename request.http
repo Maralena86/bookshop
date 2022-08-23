@@ -1,0 +1,44 @@
+# GET https://google.fr
+
+# ###
+
+# GET http://127.0.0.1:8000/api/users
+
+# ###
+
+# POST http://127.0.0.1:8000/
+# Content-Type: application/json
+
+# {
+#     "email": "pepe@pepe.com",
+#     "password" : "pepe"
+# }
+# ###
+
+# GET http://127.0.0.1:8000/api/users?limit=1
+
+# ###
+
+# POST http://127.0.0.1:8000/auteurs
+# Content-Type: application/json
+
+# {
+#     "name": "Alice",
+#     "description" : "Awesome author, ",
+#     "imageUrl" : "https://i.gifer.com/2zVy.gif" 
+# }
+# ###
+
+
+# GET http://127.0.0.1:8000/api/auteurs/list
+# ###
+
+# PATCH http://127.0.0.1:8000/auteurs/150
+# Content-Type: application/json
+
+# {
+#     "name": "Alice",
+#     "description" : "Awesome author, ",
+#     "imageUrl" : "https://i.gifer.com/2zVy.gif" 
+
+# }

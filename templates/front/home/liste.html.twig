@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+{% block title %}Books{% endblock %}
+ {% block body %}
+
+ <h1>bookshop library</h1>
+
+
+
+<article> 
+
+ {% for book in books %}
+    <div class="container"> 
+        {% if book.imageUrl %}
+        <img src= "{{book.imageUrl}}" alt="{{book.title}}"/>
+        {% endif %}      
+        <p> <strong>{{book.title}} </strong>: €{{book.price}}</p>
+        <p><strong>Dernière modification : </strong>{{ book.updatedAt|date('d/m/Y à H:i', 'Europe/Paris') }}</p>
+        {% for category in book.categories %}
+        <a href="{{path('app_front_category_display', {id:category.id})}}">{{category.name}}</a>
+        {% endfor %}      
+        
+        <nav>
+            <a href="{{ path('app_front_basket_add', {id: book.id}) }}">Ajouter au panier</a>
+            
+        </nav>
+    </div>
+ {% endfor %}
+ </article>
+
+ {% endblock %}

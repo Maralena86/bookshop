@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+{% block title %}basket{% endblock %}
+ {% block body %}
+
+{% if app.user.basket.books|length == 0 %}
+<h2>Votre panier et vide </h2>
+{% endif %}
+    <h1>COMMANDE R  éussi</h1>
+    {% for book in app.user.basket.books %}
+    <div class="container">
+        <p><strong>{{book.title}} </strong>:{{book.price}}</p>
+
+        {% if book.imageUrl %}
+            <img src= "{{book.imageUrl}}" alt="{{book.title}}"/>
+        {% endif %}
+        <a href="{{ path('app_front_basket_remove', {id: book.id}) }}">Supprimer de panier</a>
+    </div>
+    {% endfor %}
+
+
+<div class="container">
+<h4>Total de la commande: {{ app.user.basket.totalPrice() }}</h4>
+<a href="{{path('app_front_basket_validate')}}">Valider votre panier</a>
+</div>
+
+
+ {% endblock %}

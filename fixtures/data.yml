@@ -1,0 +1,59 @@
+App\Entity\Category:
+    category_1:
+        name: Science Fiction
+    category_2:
+        name: Policier
+    category_3:
+        name: Drama
+    category_4:
+        name: Literature
+    category_{5..25}:
+        name: <fr_FR:word()>
+
+App\Entity\Author:
+    author_1:
+        name: J.K. Rowling
+        description: <fr_FR:realText()>
+        imageUrl: <imageUrl()>
+    author_{2..50}:
+        name: <fr_FR:name()>
+        description: <fr_FR:realText()>
+        imageUrl: <imageUrl()>
+
+App\Entity\PublishingHouse:
+    house_1:
+        name: Galimard
+        description: <fr_FR:realText()>
+        country: France
+    house_{2..50}:
+        name: <fr_FR:company()>
+        description: <fr_FR:realText()>
+        country: <fr_FR:countryCode()>
+
+App\Entity\Book:
+    book_1:
+        title: Harry Potter
+        price: 4.9
+        author: "@author_1"
+        description: <fr_FR:realText()>
+        imageUrl: <imageUrl()>
+        publishHouse: "@house_1"
+        categories: ["@category_1", "@category_3"]
+    book_{2..100}:
+        title: <fr_FR:catchPhrase()>
+        price: <randomFloat(2, 4, 50)>
+        author: "@author_*"
+        description: <fr_FR:realText()>
+        imageUrl: <imageUrl()>
+        categories: "5x @category_*"
+        publishHouse: "@house_*"
+App\Entity\User:
+    user_admin:
+        email: admin@mail.com
+        roles: ["ROLE_ADMIN"]
+        #password:admin
+        password: \$2y\$13\$/2C2.cV35KUiAHvCquam7O2T5azAPAQdnHusT0he6C829YWbKw5gu
+    user_user:
+        email: ma@ma
+        roles: ["ROLE_USER"] 
+        password: \$2y\$13\$jhnVbeeiAvo1hqY6aUsB8.thWO/Cs0N9B448v9OJZ1fXVE0WNn1Oi 

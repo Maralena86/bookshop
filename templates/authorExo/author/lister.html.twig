@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+ {% block body %}
+<h1>AUTHORS</h1>
+ <div class="container">
+ <h2>Search:</h2>
+{{form(form)}}
+</div>
+
+<article>
+ {% for author in authors %}
+ <div class="container">
+<p> <strong>Name: </strong> {{author.name}}  </p>
+
+
+{% if author.imageUrl %}
+<img src="{{author.imageUrl}}" />
+{% endif %}
+<p> <strong>Description:  </strong>{{author.description}}  </p>
+</div>
+ {% endfor %}
+ 
+ </article>
+
+ {% endblock %}
