@@ -58,18 +58,13 @@ class CategoryController extends AbstractController
     }
     #[Route('/admin/categorie/nouvelle/{id}/supprimer', 'app_admin_category_delete')]
     public function update(Request $request, AuthorRepository $repository, int $id): Response
-    {
-        
+    { 
+        $category=$repository->find($id);
          
-        $category=$repository->find($id); 
-
         if($request->isMethod('POST')){
             $name = $request->request->get('name');
-          
             $category->setName($name);           
-
             $repository->add($category, true);
-
             return $this->redirectToRoute('app_admin_category_liste');
         }
         return $this->render('authorExo/category/update.html.twig', [

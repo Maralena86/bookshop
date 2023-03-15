@@ -58,7 +58,6 @@ class SearchBookType extends AbstractType
                     'price'=>'price',
                 ],
             ])
-
             ->add('direction', ChoiceType::class, [
                 'required'=> true,
                 'choices' => [

@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class HomeController extends AbstractController
 {
-    #[Route('/home', "app_front_home_home")]
+    #[Route('/', "app_front_home_home")]
     public function home(BookRepository $repository): Response
     {
         $books=$repository->findBooksDesc();
